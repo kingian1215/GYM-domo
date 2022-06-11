@@ -39,10 +39,15 @@
             <label for="name">體重</label>
             <input type="number" step="0.1" name="weight" id="weight" required><br>
             <br>
-            <button type="submit">計算</button>
+            <dir id="result">
+                BMI: <span class="bmi"></span>             
+            </dir>
+            <input type="button" id="calc" value="計算"></button>
+            <input type="reset" id="reset" value="重設"></button>
         </form>
         <a href="./index.html">返回首頁</a>
     </div>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>
