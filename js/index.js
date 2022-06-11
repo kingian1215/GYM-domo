@@ -1,31 +1,35 @@
-const nametE1 = document.querySelector("#name");
-const weightE1 = document.querySelector("#weight");
-const heightE1 = document.querySelector("#height");
-const calcE1 = document.querySelector("#calc");
+const nametEl = document.querySelector("#name");
+const weightEl = document.querySelector("#weight");
+const heightEl = document.querySelector("#height");
+const calcEl = document.querySelector("#calc");
+const bmiEl = document.querySelector("#result .bmi");
 
-console.log(nametE1, weightE1, heightE1, calcE1);
+console.log(nametEl, weightEl, heightEl, calcEl);
 
-calcE1.addEventListener("click", () => {
-    let name = nametE1.value;
-    let weight = weightE1.value;
-    let height = heightE1.value;
+calcEl.addEventListener("click", () => {
+    let name = nametEl.value;
+    let weight = weightEl.value;
+    let height = heightEl.value;
 
     // if (isNaN(weight) || isNaN(height)){
         // alert("輸入錯誤");
         // return;
     // }
 
+    document.querySelector("#result ")
     let bmi = getBmi(height, weight);
 // 
-    if (bmi == Infinity){
-        alert("輸入錯誤");
+    if (bmi == Infinity  || isNaN(bmi)){
+        bmiEl.innerText = "輸入錯誤";
         return;
     }
     
-    alert(`${name} bmi=${bmi}`)
+    // alert(`${name} bmi=${bmi}`);
+    console.log(bmi);
+    bmiEl.innerText = bmi;
+    // document.querySelector("#result .bmi").innerText(bmi);
 })
 
 function getBmi(height, weight, point = 2){
-    let bmi = weight/(height/100)**2;
-    return bmi.toFixed(point);
+    return (weight / (height / 100) ** 2).toFixed(point);
 }
